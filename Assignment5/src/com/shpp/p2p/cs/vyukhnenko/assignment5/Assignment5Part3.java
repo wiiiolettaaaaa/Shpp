@@ -23,7 +23,7 @@ public class Assignment5Part3 extends TextProgram {
     public void run() {
         while (true) {
             String userInput = readLine("Enter line with 3 letters: ");
-            if (isWord(userInput)) {
+            if (isLetters(userInput)) {
                 if (wrongQuantity(userInput)) {
                     println("You wrote wrong quantity of letters. Please try again)");
                     continue;
@@ -43,13 +43,7 @@ public class Assignment5Part3 extends TextProgram {
      * @return Boolean true or false
      */
     private boolean wrongQuantity(String userInput) {
-        if(userInput.length() > 3) {
-            return true;
-        }else if(userInput.length() < 3) {
-            return true;
-        }
-
-        return false;
+        return userInput.length() != 3;
     }
 
     /**
@@ -129,7 +123,7 @@ public class Assignment5Part3 extends TextProgram {
      * @param letters A string contains user input letters
      * @return Boolean true or false
      */
-    private boolean isWord(String letters) {
+    private boolean isLetters(String letters) {
         //Checks is there are some chars
         if (letters == null || letters.isEmpty()) {
             return false;

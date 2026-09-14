@@ -11,13 +11,13 @@ public class Assignment5Part2 extends TextProgram {
         /* Sit in a loop, reading numbers and adding them. */
         while (true) {
             String n1 = readLine("Enter first number:  ");
-            while (!isNum(n1)){
+            while (!isNum(n1)) {
                 println("Not a number");
                 n1 = readLine("Enter first number:  ");
             }
 
             String n2 = readLine("Enter second number: ");
-            while (!isNum(n2)){
+            while (!isNum(n2)) {
                 println("Not a number");
                 n2 = readLine("Enter second number:  ");
             }
@@ -35,14 +35,14 @@ public class Assignment5Part2 extends TextProgram {
      */
     private boolean isNum(String num) {
         //Checks isn't user input empty
-        if (num == null || num.isEmpty()){
+        if (num == null || num.isEmpty()) {
             return false;
         }
 
         char[] nums = num.toCharArray();
 
         //Cycle which look for every char of the string and if it's not a digit return false
-        for(int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             if (!Character.isDigit(nums[i])) {
                 return false;
             }
@@ -82,10 +82,10 @@ public class Assignment5Part2 extends TextProgram {
             int d2 = 0;
 
             if (n1.length() >= n2.length()) {
-                d1 = digit1[i] -'0';
+                d1 = digit1[i] - '0';
                 d2 = i - diff >= 0 ? digit2[i - diff] - '0' : 0;
             } else {
-                d2 = digit2[i] -'0';
+                d2 = digit2[i] - '0';
                 d1 = i - diff >= 0 ? digit1[i - diff] - '0' : 0;
             }
 
@@ -98,9 +98,19 @@ public class Assignment5Part2 extends TextProgram {
 
         String result = new String(res);
 
-        //If there aren't any step for the first digits, then starts from them
-        if(res[0] == '0'){
-            return result.substring(1);
+        int indexLastZeroFromBeggining = 0;
+
+        //If there are zero in the begging of result, find index of the last one
+        for (int i = 0; i < result.length(); i++) {
+            if (res[i] == '0') {
+                indexLastZeroFromBeggining += 1 ;
+            }else{
+                break;
+            }
+        }
+
+        if (res[0] == '0') {
+            return result.substring(indexLastZeroFromBeggining);
         }
 
         return result;

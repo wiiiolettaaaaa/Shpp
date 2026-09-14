@@ -61,7 +61,7 @@ public class Assignment5Part1 extends TextProgram {
      * Check is user input is a word and isn't it empty
      *
      * @param word A string contains user input word
-     * @return Boolean true or false
+     * @return Boolean true if user input is a word or false if user input is not a word
      */
     private boolean isWord(String word) {
         //Checks is there are some chars
@@ -69,11 +69,9 @@ public class Assignment5Part1 extends TextProgram {
             return false;
         }
 
-        char symbols[] = word.toCharArray();
-
         //Checks is chars - letters
-        for (int i = 0; i < symbols.length; i++) {
-            if (!Character.isLetter(symbols[i])) {
+        for (int i = 0; i < word.length(); i++) {
+            if (!Character.isLetter(word.charAt(i))) {
                 return false;
             }
 
@@ -85,7 +83,7 @@ public class Assignment5Part1 extends TextProgram {
      * Checker is current letter vowel or not
      *
      * @param letter Char which make String word(user input)
-     * @return Boolean true or false
+     * @return Boolean true if letter is vowel or false if letter is consonant
      */
     private boolean isVowel(char letter) {
         for (int i = 0; i < vowels.length; i++) {
