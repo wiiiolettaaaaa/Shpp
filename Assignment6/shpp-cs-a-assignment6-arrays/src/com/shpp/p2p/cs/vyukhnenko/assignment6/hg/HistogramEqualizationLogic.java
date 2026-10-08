@@ -13,9 +13,13 @@ public class HistogramEqualizationLogic {
      * @return A histogram of those luminances.
      */
     public static int[] histogramFor(int[][] luminances) {
-        int height = luminances.length;
-        int length = luminances[0].length;
-        int[] histogramOfLuminaces = new int[MAX_LUMINANCE+1];
+        int height = 0;
+        int length = 0;
+        if (luminances.length == 0 || luminances[0].length == 0) {
+            height = luminances.length;
+            length = luminances[0].length;
+        }
+        int[] histogramOfLuminaces = new int[MAX_LUMINANCE + 1];
 
         //Iterate elements of array luminances and
         //record the number of pixels with the current brightness
@@ -84,7 +88,7 @@ public class HistogramEqualizationLogic {
     public static int[][] equalize(int[][] luminances) {
         int height = 0;
         int length = 0;
-        if(luminances.length == 0 || luminances[0].length == 0) {
+        if (luminances.length == 0 || luminances[0].length == 0) {
             height = luminances.length;
             length = luminances[0].length;
         }
