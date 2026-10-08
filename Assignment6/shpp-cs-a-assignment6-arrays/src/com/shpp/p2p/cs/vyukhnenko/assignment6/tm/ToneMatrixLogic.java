@@ -17,8 +17,8 @@ public class ToneMatrixLogic {
         //combine all sounds
         for (int row = 0; row < toneMatrix.length; row++) {
             if (toneMatrix[row][column]) {
-                for (int i = 0; i < samples.length; i++)
-                    result[i] += samples[i][column];
+                for (int i = 0; i < samples[row].length; i++)
+                    result[i] += samples[row][i];
             }
         }
 

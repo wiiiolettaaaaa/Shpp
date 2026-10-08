@@ -18,16 +18,16 @@ public class SteganographyLogic {
     public static boolean[][] findMessage(GImage source) {
         int[][] image = source.getPixelArray();
 
-        int length = image.length;
-        int height = image[0].length;
+        int height = image.length;
+        int length = image[0].length;
 
-        boolean[][] message = new boolean[length][height];
+        boolean[][] message = new boolean[height][length];
 
         //Checks whether the value is even or odd
         //and write it to a new array: if it is even,
         //we record "false" (representing white), and vice versa for black.
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < height; j++) {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < length; j++) {
                 int currentPixel = image[i][j];
 
                 int r = GImage.getRed(currentPixel);
@@ -65,13 +65,13 @@ public class SteganographyLogic {
     public static GImage hideMessage(boolean[][] message, GImage source) {
         int[][] image = source.getPixelArray();
 
-        int length = image.length;
-        int height = image[0].length;
+        int height = image.length;
+        int length = image[0].length;
 
         //Iterate through each cell of the array and retrieve the RGB value.
         //If the current value is "false," we make the R component even, and vice versa.
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < height; j++) {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < length; j++) {
                 int currentPixel = image[i][j];
 
                 int r = GImage.getRed(currentPixel);
